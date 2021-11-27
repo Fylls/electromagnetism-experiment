@@ -1,0 +1,65 @@
+distanza = c(1,2,3,4,5,6,7,8,10,15,20,30,40)
+distanza = distanza / 1000
+raggio = 10/100
+superficie = pi * raggio^2
+e0 = 8.854187817*10^-12
+vsperi = c(20, 30, 40, 45, 49, 50, 52.5, 55, 55, 60, 60, 60, 61)
+capacitainfinita = (e0 * superficie) / distanza
+carica = capacitainfinita[1] * vsperi[1]
+voltaggioinfinito = carica / capacitainfinita
+capacitadischi = (e0 * pi * raggio^2)/(raggio + distanza - sqrt(raggio^2 + distanza^2))
+voltaggiodischi = carica / capacitadischi
+capacitaparassita = (carica / vsperi) - capacitadischi
+capacitaparassita = mean(capacitaparassita[which(capacitaparassita> 0)])
+plot(distanza, voltaggioinfinito)
+plot(distanza, voltaggiodischi)
+plot(distanza, vsperi)
+
+OUTPUT
+
+stima della carica = 5.56325e-09
+capacità ideale se fossero infiniti =  2.781625e-10 1.390813e-10 9.272084e-11 6.954063e-11 5.563250e-11 4.636042e-11 3.973750e-11 3.477031e-11 2.781625e-11 1.854417e-11 1.390813e-11 9.272084e-12 6.954063e-12
+capacità ideale se fossero dischi = 2.795603e-10 1.404860e-10 9.413251e-11 7.095925e-11 5.705806e-11 4.779292e-11 4.117693e-11 3.621667e-11 2.927643e-11 2.003871e-11 1.543666e-11 1.086702e-11 8.612721e-12
+capacità parassita = 6.48773e-11
+voltaggio infinito = 20  40  60  80 100 120 140 160 200 300 400 600 800
+voltaggio dischi = 19.90000  39.60004  59.10020  78.40064  97.50156 116.40323 135.10599 153.61021 190.02488 277.62516 360.39219 511.93870 645.93408
+
+REGRESSIONE
+
+REGRESSIONE CON TUTTI I DATI
+Call:
+lm(formula = vsperi ~ distanza)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-21.322  -2.776   4.771   6.817   8.590 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   40.595      3.795  10.697 3.76e-07 ***
+distanza     726.947    233.664   3.111  0.00991 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.563 on 11 degrees of freedom
+Multiple R-squared:  0.4681,	Adjusted R-squared:  0.4197 
+F-statistic: 9.679 on 1 and 11 DF,  p-value: 0.009906
+
+REGRESSIONE CON 8 DATI
+Call:
+lm(formula = vsperi ~ distanza)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.1667 -1.1280  0.0119  1.8065  2.2857 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   10.893      1.675   6.503 0.000630 ***
+distanza    2273.810    331.700   6.855 0.000474 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.15 on 6 degrees of freedom
+Multiple R-squared:  0.8868,	Adjusted R-squared:  0.8679 
+F-statistic: 46.99 on 1 and 6 DF,  p-value: 0.0004743

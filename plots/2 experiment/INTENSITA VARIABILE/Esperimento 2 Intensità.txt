@@ -1,0 +1,36 @@
+INTENSITA =  1 1.5 2 2.5 3 3.5 4
+MASSA = 0.38 0.57  0.79 0.98 1.18 1.37 1.53
+
+intensita = c(1, 1.5, 2, 2.5, 3, 3.5, 4)
+lunghezza = 4/100
+massa = c(0.38, 0.57,  0.79, 0.98, 1.18, 1.37, 1.53)/1000
+forza = massa * 9.80665
+reg = lm(forza ~ I(intensita*lunghezza))
+summary(reg)
+plot(intensita*lunghezza, forza)
+abline(reg)
+res = resid(reg)
+plot(fitted(reg), res)
+qqnorm(res)
+qqline(res)
+plot(density(res))
+
+OUTPUT
+
+Call:
+lm(formula = forza ~ I(intensita * lunghezza))
+
+Residuals:
+         1          2          3          4          5          6          7 
+-8.406e-05 -1.261e-04  1.261e-04  8.406e-05  1.401e-04  9.807e-05 -2.382e-04 
+
+Coefficients:
+                           Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              -1.311e-18  1.653e-04    0.00        1    
+I(intensita * lunghezza)  9.526e-02  1.535e-03   62.08 2.05e-08 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0001624 on 5 degrees of freedom
+Multiple R-squared:  0.9987,	Adjusted R-squared:  0.9984 
+F-statistic:  3853 on 1 and 5 DF,  p-value: 2.054e-08
