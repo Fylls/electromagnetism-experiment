@@ -1,0 +1,54 @@
+Call:
+lm(formula = v_exp ~ d)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-10.575  -1.288   2.016   3.311   3.606 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    20.15       1.74  11.579 7.19e-08 ***
+d             424.34     109.91   3.861  0.00226 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.507 on 12 degrees of freedom
+Multiple R-squared:  0.554,	Adjusted R-squared:  0.5168 
+F-statistic: 14.91 on 1 and 12 DF,  p-value: 0.002265
+
+
+Call:
+lm(formula = v_exp[0:8] ~ d[0:8])
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.1667 -1.1280  0.0119  1.8065  2.2857 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   10.893      1.675   6.503 0.000630 ***
+d[0:8]      2273.810    331.700   6.855 0.000474 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.15 on 6 degrees of freedom
+Multiple R-squared:  0.8868,	Adjusted R-squared:  0.8679 
+F-statistic: 46.99 on 1 and 6 DF,  p-value: 0.0004743
+
+
+	Shapiro-Wilk normality test
+
+data:  v_exp
+W = 0.91027, p-value = 0.159
+
+
+	Shapiro-Wilk normality test
+
+data:  v_exp[0:8]
+W = 0.88893, p-value = 0.2287
+
+
+	Shapiro-Wilk normality test
+
+data:  res
+W = 0.93501, p-value = 0.5627
