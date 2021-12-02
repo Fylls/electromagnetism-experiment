@@ -10,7 +10,7 @@ summary(model)
 model2 = lm(v_exp[0:8] ~ d[0:8])
 summary(model2)
 
-# Plots with regression lines
+# Plots with regression line
 plot(d, v_exp)
 abline(model)
 
