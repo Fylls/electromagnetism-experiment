@@ -1,11 +1,13 @@
 # Earth's gravitational acceleration
 g = 9.80665
 
-# Variable length
-current = c(1, 1.5, 2, 2.5, 3, 3.5, 4)
-length = 0.04
-angle = pi / 2
-mass = c(0.38, 0.57,  0.79, 0.98, 1.18, 1.37, 1.53) / 1000
+# Data
+current = 3
+length = 0.11
+angle = ( c(-90, -80, -70, -60, -50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90) * pi ) / 180
+
+# Laplace Force
+mass = c(-77, -75, -72, -66, -58, -48, -36, -24, -10, 0, 14, 26, 38, 49, 59, 66, 72, 77, 78) / 100000
 force = mass * g
 
 # Linear regression
@@ -31,11 +33,12 @@ shapiro.test(mass)
 qqnorm(res)
 qqline(res)
 
-#qqnorm(mass)
-#qqline(mass)
+qqnorm(mass)
+qqline(mass)
 
 # Density
 plot(density(res))
 plot(density(mass))
 
-
+# Plot sin
+plot(angle, sin(angle))

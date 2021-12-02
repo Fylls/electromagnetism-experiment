@@ -1,3 +1,4 @@
+
 Call:
 lm(formula = force ~ I(current * length * sin(angle)))
 
