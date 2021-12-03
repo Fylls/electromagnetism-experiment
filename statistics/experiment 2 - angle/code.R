@@ -1,4 +1,4 @@
-# Earth's gravitational acceleration
+# Near Earth's surface, gravitational acceleration is approximately
 g = 9.80665
 
 # Data
