@@ -1,0 +1,29 @@
+Call:
+lm(formula = force ~ I(current * length * sin(angle)))
+
+Residuals:
+         1          2          3          4          5          6          7 
+-8.406e-05 -1.261e-04  1.261e-04  8.406e-05  1.401e-04  9.807e-05 -2.382e-04 
+
+Coefficients:
+                                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      -5.245e-18  1.653e-04    0.00        1    
+I(current * length * sin(angle))  9.526e-02  1.535e-03   62.08 2.05e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.0001624 on 5 degrees of freedom
+Multiple R-squared:  0.9987,	Adjusted R-squared:  0.9984 
+F-statistic:  3853 on 1 and 5 DF,  p-value: 2.054e-08
+
+
+	Shapiro-Wilk normality test
+
+data:  res
+W = 0.86523, p-value = 0.1685
+
+
+	Shapiro-Wilk normality test
+
+data:  mass
+W = 0.97162, p-value = 0.9099
