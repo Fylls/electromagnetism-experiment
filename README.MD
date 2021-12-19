@@ -5,6 +5,7 @@
 </div>
 
 Electrostatics and magnetostatic phenomena are notorious for being among the most difficult to deal with in the lab.
+
 In the following pages, I will show how I have addressed these challenges both experimentally and computationally.
 
 <div align="center">
